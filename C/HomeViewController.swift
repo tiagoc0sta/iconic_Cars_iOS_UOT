@@ -40,6 +40,19 @@ class HomeViewController: UIViewController {
         
     }()
     
+    private lazy var welcomeButton: UIButton = {
+        let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Start here!", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
+        button.backgroundColor = UIColor.buttonBackground
+        button.layer.cornerRadius = 6
+        button.addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        return button
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -52,6 +65,7 @@ class HomeViewController: UIViewController {
         view.addSubview(backgroundImageView)
         view.addSubview(titleLabel)
         view.addSubview(subTitleLabel)
+        view.addSubview(welcomeButton)
     }
     
     func setUpConstraints() {
@@ -68,7 +82,13 @@ class HomeViewController: UIViewController {
             
             //subTitleLabel constraints
             subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            subTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            subTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            //welcomeButton constraints
+            welcomeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
+            welcomeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
+            welcomeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
+            welcomeButton.heightAnchor.constraint(equalToConstant: 50)
         ])
     }
 }
