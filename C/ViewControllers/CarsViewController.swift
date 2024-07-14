@@ -16,7 +16,7 @@ class CarsViewController: UIViewController {
         tableView.backgroundColor = .clear //show the backgound color
         tableView.dataSource = self // defines that CarsViewController is the data source
         tableView.delegate = self // defines that CarsViewController defines the behaivour of the table
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "carCell")
+        tableView.register(CarTableViewCell.self, forCellReuseIdentifier: "carCell")
         return tableView
     }()
     
@@ -59,17 +59,23 @@ extension CarsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     // mandatory method when using UITableViewDataSource - related to data in a table
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "carCell", for: indexPath) //reuse or created cell
-        var configuration = cell.defaultContentConfiguration()
-        configuration.text = cars[indexPath.row].title
-        configuration.textProperties.color = .white
-        cell.contentConfiguration = configuration
-        cell.backgroundColor = .clear // transparent background color
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "carCell", for: indexPath) as? CarTableViewCell {
+            cell.configureCell(car: cars[indexPath.row]) //calling configureCell function from CarTableViewCell
+            cell.selectionStyle = .none // disable shadow when press button
+            return cell
+        }
+        return UITableViewCell() // In case of an error, it will return any cell
     }
     
     // method acts when selecting a cell
     func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        let detailsVC = CarDetailsViewController(car: cars[indexPath.row])
+        navigationController?.pushViewController(detailsVC, animated: true)
+    }
+    
+    // define table height
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 160
     }
 }

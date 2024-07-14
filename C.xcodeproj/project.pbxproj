@@ -15,6 +15,7 @@
 		F04FF89B2C4347CF00597A0D /* CarsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04FF89A2C4347CF00597A0D /* CarsViewController.swift */; };
 		F04FF89F2C4369D100597A0D /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04FF89E2C4369D100597A0D /* Car.swift */; };
 		F04FF8A22C4375B800597A0D /* CarTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F04FF8A12C4375B800597A0D /* CarTableViewCell.swift */; };
+		F07CED272C442D0D0029A46B /* CarDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07CED262C442D0D0029A46B /* CarDetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F04FF89A2C4347CF00597A0D /* CarsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarsViewController.swift; sourceTree = "<group>"; };
 		F04FF89E2C4369D100597A0D /* Car.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		F04FF8A12C4375B800597A0D /* CarTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarTableViewCell.swift; sourceTree = "<group>"; };
+		F07CED262C442D0D0029A46B /* CarDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarDetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 			children = (
 				F017DF122C42F804008E585E /* HomeViewController.swift */,
 				F04FF89A2C4347CF00597A0D /* CarsViewController.swift */,
+				F07CED262C442D0D0029A46B /* CarDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -168,6 +171,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F017DF132C42F804008E585E /* HomeViewController.swift in Sources */,
+				F07CED272C442D0D0029A46B /* CarDetailsViewController.swift in Sources */,
 				F017DF0F2C42F804008E585E /* AppDelegate.swift in Sources */,
 				F04FF8A22C4375B800597A0D /* CarTableViewCell.swift in Sources */,
 				F04FF89F2C4369D100597A0D /* Car.swift in Sources */,

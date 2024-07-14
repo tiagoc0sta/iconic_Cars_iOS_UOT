@@ -10,30 +10,37 @@ import UIKit
 class CarTableViewCell: UITableViewCell {
     
     private lazy var carPosterImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage.fordMustang)
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 12
+        imageView.layer.masksToBounds = true
         return imageView
     }()
     
     private lazy var carTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Mustang"
         label.font = .systemFont(ofSize: 20, weight: .bold)
         label.textColor = .white
+        label.numberOfLines = 0
         return label
     }()
     
     private lazy var carReleaseDateLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Release: 1964"
         label.font = .systemFont(ofSize: 18)
         label.textColor = .white.withAlphaComponent(0.75)
         return label
     }()
+    
+    // function to show the [Car] array in the table. This will be called in CarsViewController
+    func configureCell(car: Car) {
+        carTitleLabel.text = car.title
+        carPosterImageView.image = UIImage(named: car.image)
+        carReleaseDateLabel.text = "Release: \(car.releaseDate)"
+    }
     
     private func addSubviews() {
         addSubview(carPosterImageView)
@@ -51,8 +58,9 @@ class CarTableViewCell: UITableViewCell {
             carPosterImageView.widthAnchor.constraint(equalToConstant: 100),
             
             //movieTitleLabel constraints
-            carTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            carTitleLabel.centerYAnchor.constraint(equalTo: centerYAnchor, constant: -16),
             carTitleLabel.leadingAnchor.constraint(equalTo: carPosterImageView.trailingAnchor, constant: 16),
+            carTitleLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
             //carReleaseDateLabel constraints
             carReleaseDateLabel.topAnchor.constraint(equalTo: carTitleLabel.bottomAnchor, constant: 8),
