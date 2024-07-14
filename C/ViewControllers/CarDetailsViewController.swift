@@ -86,8 +86,8 @@ class CarDetailsViewController: UIViewController {
             
             // posterImageView constraints
             posterImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            posterImageView.widthAnchor.constraint(equalToConstant: 250.0),
-            posterImageView.heightAnchor.constraint(equalToConstant: 300.0),
+            posterImageView.widthAnchor.constraint(equalToConstant: 300.0),
+            posterImageView.heightAnchor.constraint(equalToConstant: 400.0),
             posterImageView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32.0),
             
             // userRatingLabel constraints
@@ -95,7 +95,7 @@ class CarDetailsViewController: UIViewController {
             userRatingLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             // descriptionLabel constraints
-            descriptionLabel.topAnchor.constraint(equalTo: userRatingLabel.bottomAnchor, constant: 32.0),
+            descriptionLabel.topAnchor.constraint(equalTo: userRatingLabel.bottomAnchor, constant: 24.0),
             descriptionLabel.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16.0),
             descriptionLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16.0),
         ])
