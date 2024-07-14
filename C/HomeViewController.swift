@@ -52,26 +52,31 @@ class HomeViewController: UIViewController {
         return button
     }()
     
+    private lazy var stackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, subTitleLabel ])
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 16
+        stackView.alignment = .center
+        return stackView
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = .background
-        addSubViews()
+        addSubviews()
         setUpConstraints()
     }
     
     @objc private func buttonPressed() {
         print("button pressed")
         navigationController?.pushViewController(CarsViewController(), animated: true) //navigate to another screen
-        
     }
     
-    func addSubViews() {
-        view.addSubview(backgroundImageView)
-        view.addSubview(titleLabel)
-        view.addSubview(subTitleLabel)
-        view.addSubview(welcomeButton)
+    func addSubviews() {
+        view.addSubview(backgroundImageView) //added here because caused error when inside the stackView
+        view.addSubview(stackView)
+        view.addSubview(welcomeButton) //added here because caused error when inside the stackView
     }
     
     func setUpConstraints() {
@@ -82,26 +87,18 @@ class HomeViewController: UIViewController {
             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            // Welcome label constraints
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            // Stack view constraints
+            stackView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
+            stackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            stackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
             
-            //subTitleLabel constraints
-            subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 12),
-            subTitleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            //welcomeButton constraints
+            // Welcome button constraints
             welcomeButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32),
             welcomeButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 80),
             welcomeButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80),
-            welcomeButton.heightAnchor.constraint(equalToConstant: 50)
+            welcomeButton.heightAnchor.constraint(equalToConstant: 50),
+            
         ])
     }
 }
-/*
-// Extension to define background color
-extension UIColor {
-    static var customBackground: UIColor {
-        return UIColor.black // Replace with your desired background color if needed
-    }
-}*/
+
