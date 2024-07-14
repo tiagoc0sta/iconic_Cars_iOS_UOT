@@ -6,3 +6,7 @@
 - constraints
 - navigationController
 - UIStackView
+- UITableView
+- UITableViewDataSource
+- UITableViewDelegate
+- Struct
