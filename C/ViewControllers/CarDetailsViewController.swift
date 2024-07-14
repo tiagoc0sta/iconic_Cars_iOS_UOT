@@ -9,7 +9,7 @@ import UIKit
 
 class CarDetailsViewController: UIViewController {
     
-    var car: Car
+    private var car: Car
     
     private lazy var titleLabel: UILabel = {
         let label = UILabel()

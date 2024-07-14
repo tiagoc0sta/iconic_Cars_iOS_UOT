@@ -45,7 +45,7 @@ class CarsViewController: UIViewController {
     private func setupNavigationBar() {
         title = "Iconic cars"
         navigationController?.navigationBar.prefersLargeTitles = true // change title size
-        navigationController?.navigationBar.largeTitleTextAttributes = [ NSAttributedString.Key.foregroundColor : UIColor.white] // Change title color
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor : UIColor.white] // Change title color
         navigationItem.setHidesBackButton(true, animated: true) //delete  "back" button
     }
 
@@ -68,7 +68,7 @@ extension CarsViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     // method acts when selecting a cell
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detailsVC = CarDetailsViewController(car: cars[indexPath.row])
         navigationController?.pushViewController(detailsVC, animated: true)

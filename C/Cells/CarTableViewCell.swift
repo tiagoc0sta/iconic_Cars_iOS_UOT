@@ -21,7 +21,7 @@ class CarTableViewCell: UITableViewCell {
     private lazy var carTitleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .systemFont(ofSize: 20.0, weight: .bold)
         label.textColor = .white
         label.numberOfLines = 0
         return label
