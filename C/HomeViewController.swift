@@ -47,8 +47,8 @@ class HomeViewController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20, weight: .semibold)
         button.backgroundColor = UIColor.buttonBackground
-        button.layer.cornerRadius = 6
-        button.addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+        button.layer.cornerRadius = 12
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         return button
     }()
     
@@ -59,6 +59,12 @@ class HomeViewController: UIViewController {
         view.backgroundColor = .background
         addSubViews()
         setUpConstraints()
+    }
+    
+    @objc private func buttonPressed() {
+        print("button pressed")
+        navigationController?.pushViewController(CarsViewController(), animated: true) //navigate to another screen
+        
     }
     
     func addSubViews() {
@@ -77,7 +83,7 @@ class HomeViewController: UIViewController {
             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
             // Welcome label constraints
-            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 64),
+            titleLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
             //subTitleLabel constraints
