@@ -70,6 +70,8 @@ class CarTableViewCell: UITableViewCell {
     }
     
     //as this is not a controller file and there is no viewDidLoad, we need to use initializers
+    // This can be tricky and create issues sometimes, we can discuss it during one of the sessions if you want.
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         addSubviews()
